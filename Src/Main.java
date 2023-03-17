@@ -1,5 +1,3 @@
-package OS;
-
 import java.util.Scanner;
 
 /**
