@@ -1,2 +1,2 @@
 # CPU-Scheduling
-Implementation of The SJF and RR CPU Scheduling algorithms in java
+The project containts the implementation of The Shortest-Job-First(SJF) and Round-Robin(RR) CPU scheduling algorithms in java
