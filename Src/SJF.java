@@ -22,12 +22,15 @@ public class SJF {
         while(completed!=n){
             int shortestProcess = -1;
             int shortestTime = Integer.MAX_VALUE;
+            
+            //find the shortest process
             for(int i = 0 ; i < n ; i ++){
                 if(burstTime[i]<shortestTime && currentTime-arrivalTime[i] >=0 && remainingTime[i] > 0){
                     shortestProcess = i;
                     shortestTime = burstTime[i];
                 }
             }
+            //if found process it increase the current time  and compute the waiting and completion and turnaround times 
             if(shortestProcess >= 0){
                 remainingTime[shortestProcess] = 0;
                 completed++;
