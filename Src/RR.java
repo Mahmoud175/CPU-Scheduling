@@ -30,24 +30,26 @@ public class RR {
             int arrivedFirst = Integer.MAX_VALUE;
             int currentProcess = -1;
 
+            //find the process that will enter the processor next
             for(int i = 0 ; i < n ; i ++){
                 if(queue[i]<arrivedFirst && currentTime-queue[i] >=0 && remainingTime[i] > 0){
                     currentProcess = i;
                     arrivedFirst = queue[i];
                 }
             }
-            if(currentProcess==-1 && remainingTime[latest]>0){
+            //if there is no process new process then the process that was in enters again
+            if(currentProcess==-1 && latest!=-1 &&remainingTime[latest]>0){
                 currentProcess = latest;
             }
              
-
+            //if there is a process in the processor loop until the process is finshed or until the quantum time passes
             if(currentProcess>=0){
                 for(int i = 0 ; i < quantum ; i++){
                 if(remainingTime[currentProcess]==0)
                     break;
                 else
                     remainingTime[currentProcess]--;
-                    
+                    //add the waiting time of the processes waiting
                     for(int j = 0 ; j < n ; j++){
                         if(j != currentProcess && currentTime-arrivalTime[j] >=0&& remainingTime[j]!=0){
                             waitingTime[j]++;
@@ -69,7 +71,6 @@ public class RR {
             
             
         }
-        System.out.println(currentTime);
         Finish();
     }
 
